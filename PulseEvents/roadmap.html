@@ -117,12 +117,51 @@
         .back:hover {
           opacity: 0.85;
         }
+        .fixed-nav{
+  position:fixed;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
 
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+
+  padding:8px;
+  border-radius:14px;
+
+  z-index:999;
+}
+
+.fixed-nav a{
+  color:#e6edf3;
+  text-decoration:none;
+  font-weight:600;
+  font-size:13px;
+
+  padding:8px 12px;
+  border-radius:10px;
+
+  transition:0.2s;
+}
+
+.fixed-nav a:hover{
+  background:rgba(88,166,255,0.15);
+  color:#58a6ff;
+}
     </style>
 </head>
 
 <body>
+<div class="fixed-nav">
 
+    <a href="doc.html">📘 Docs</a>
+    <a href="roadmap.html">🧭 Roadmap</a>
+    <a href="https://modrinth.com/plugin/pulseevents" target="_blank">⬇ Download</a>
+
+</div>
 <header>
     <h1>📊 PulseEvents Roadmap</h1>
     <p class="subtitle">Development progress and future plans</p>
@@ -177,7 +216,7 @@
     </div>
 
     <div style="text-align:center;">
-        <a class="back" href="index.html">⬅ Back to Home</a>
+        <a class="back" href="../index.html">⬅ Back to Home</a>
     </div>
 
 </div>

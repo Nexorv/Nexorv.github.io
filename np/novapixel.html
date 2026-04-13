@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>NovaPixel - Texture Pack</title>
+
+    <meta property="og:title" content="NovaPixel Resource Pack"/>
+    <meta property="og:description" content="Modern PvP resource pack for clarity and performance." />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+        :root{
+          --bg:#070a0f;
+          --card:rgba(255,255,255,0.04);
+          --stroke:rgba(255,255,255,0.08);
+          --text:#e6edf3;
+          --muted:#9aa4b2;
+          --blue:#58a6ff;
+          --purple:#a855f7;
+        }
+
+        *{
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
+          font-family:Inter,system-ui;
+        }
+
+        body{
+          background: radial-gradient(circle at top,#1a0b2e 0%,#070a0f 50%,#05070c 100%);
+          color:var(--text);
+        }
+
+        header{
+          text-align:center;
+          padding:80px 20px 30px;
+        }
+
+        h1{
+          font-size:54px;
+          font-weight:800;
+          background:linear-gradient(90deg,var(--purple),var(--blue),var(--purple));
+          -webkit-background-clip:text;
+          -webkit-text-fill-color:transparent;
+        }
+
+        .sub{
+          color:var(--muted);
+          margin-top:10px;
+        }
+
+        .container{
+          max-width:1000px;
+          margin:auto;
+          padding:30px 20px;
+        }
+
+        .card{
+          background:var(--card);
+          border:1px solid var(--stroke);
+          border-radius:16px;
+          padding:20px;
+          backdrop-filter: blur(10px);
+          margin-bottom:20px;
+        }
+
+        h2,h3{
+          margin-top:10px;
+        }
+
+        p{
+          margin-top:8px;
+          color:var(--muted);
+          line-height:1.6;
+        }
+
+        hr{
+          border:1px solid rgba(255,255,255,0.08);
+          margin:15px 0;
+        }
+
+        .badge{
+          display:inline-block;
+          padding:6px 10px;
+          font-size:12px;
+          background:#1f2937;
+          border-radius:999px;
+          margin-top:10px;
+        }
+
+        .btns{
+          display:flex;
+          gap:10px;
+          flex-wrap:wrap;
+          margin-top:15px;
+        }
+
+        .btn{
+          padding:10px 14px;
+          border-radius:10px;
+          text-decoration:none;
+          font-weight:700;
+        }
+
+        .cf{background:#f16436;color:#fff;}
+        .md{background:#1bd96a;color:#000;}
+
+        footer{
+          text-align:center;
+          color:var(--muted);
+          padding:40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌌 NovaPixel</h1>
+    <div class="sub">Modern PvP Resource Pack • Clean • Fast • Competitive</div>
+</header>
+
+<div class="container">
+
+    <!-- DESCRIPTION -->
+    <div class="card">
+
+        <h2>🌌 NovaPixel</h2>
+
+        <p>
+            <strong>Modern PvP Resource Pack</strong> designed for clarity, speed, and style.
+        </p>
+
+        <p>
+            NovaPixel is built to make combat cleaner, sharper, and more responsive.
+            It uses <span style="color:#58a6ff">electric blue</span> and
+            <span style="color:#a855f7">neon purple</span> accents for maximum visibility.
+        </p>
+
+        <p>
+            Minimal, lightweight textures with a clean Minecraft aesthetic — optimized for PvP and performance.
+        </p>
+
+        <hr>
+
+        <h3>🎯 Perfect for</h3>
+        <p>⚔️ PvP • 🌍 Survival • 🌐 Multiplayer • 🎮 Everyday gameplay</p>
+
+        <h3>⚔️ Features</h3>
+        <p>
+            🔹 High contrast visuals<br>
+            ⚡ Neon blue & purple theme<br>
+            🗡️ PvP optimized items<br>
+            🧼 Clean minimal design<br>
+            🚀 Lightweight performance
+        </p>
+
+        <h3>⚙️ Requirements</h3>
+        <p style="color:#fbbf24">🧩 OptiFine required for full experience</p>
+
+        <h3>📦 Installation</h3>
+        <p>
+            Download → Minecraft → Options → Resource Packs → Open Folder → Move ZIP → Enable
+        </p>
+
+    </div>
+
+    <!-- DOWNLOAD -->
+    <div class="card">
+
+        <h2>⬇ Download</h2>
+
+        <div class="btns">
+
+            <a href="https://www.curseforge.com/minecraft/texture-packs/novapixel"
+               class="btn cf"
+               onclick="return warn()"
+               target="_blank">
+                CurseForge
+            </a>
+
+            <a href="https://modrinth.com/resourcepack/novapixel"
+               class="btn md"
+               onclick="return warn()"
+               target="_blank">
+                Modrinth
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © NovaPixel • Ryvox Forge
+</footer>
+
+<script>
+    function warn(){
+      return confirm(
+        "⚠ OptiFine is required for full visual experience.\n\nDo you want to continue?"
+      );
+    }
+</script>
+
+</body>
+</html>

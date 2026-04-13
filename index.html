@@ -3,192 +3,311 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="PulseEvents - Minecraft Event Plugin" />
-    <meta property="og:description" content="Automated Minecraft events with BossBar countdown, random events and full command system." />
-    <meta property="og:image" content="https://ryvox0.github.io/assets/preview.png" />
-    <meta property="og:url" content="https://ryvox0.github.io/" />
-    <meta property="og:type" content="website" />
-    <title>PulseEvents</title>
+
+    <title>Ryvox Forge</title>
+
+    <meta property="og:title" content="Ryvox Forge" />
+    <meta property="og:description" content="Minecraft plugins, PvP texture packs & mods by Ryvox." />
 
     <style>
-        :root {
-          --bg: #0d1117;
-          --card: #161b22;
-          --text: #e6edf3;
-          --muted: #9da7b3;
-          --accent: #58a6ff;
-          --border: #30363d;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+        :root{
+          --bg:#070a0f;
+          --card:rgba(255,255,255,0.04);
+          --stroke:rgba(255,255,255,0.08);
+          --text:#e6edf3;
+          --muted:#9aa4b2;
+          --accent:#58a6ff;
         }
 
-        body {
-          margin: 0;
-          font-family: Arial, Helvetica, sans-serif;
-          background: var(--bg);
-          color: var(--text);
+        *{margin:0;padding:0;box-sizing:border-box;font-family:Inter}
+
+        body{
+          background: radial-gradient(circle at top,#0d1b2a,#070a0f);
+          color:var(--text);
         }
 
-        header {
-          padding: 60px 20px;
-          text-align: center;
-          border-bottom: 1px solid var(--border);
+        /* HEADER */
+        header{text-align:center;padding:90px 20px}
+
+        h1{
+          font-size:56px;
+          font-weight:800;
+          background: linear-gradient(90deg,#58a6ff,#a855f7);
+          -webkit-background-clip:text;
+          -webkit-text-fill-color:transparent;
         }
 
-        h1 {
-          margin: 0;
-          font-size: 42px;
+        .sub{color:var(--muted);margin-top:10px}
+
+        /* GRID */
+        .grid{
+          max-width:1100px;
+          margin:auto;
+          padding:40px 20px;
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+          gap:20px;
         }
 
-        .subtitle {
-          color: var(--muted);
-          margin-top: 10px;
-          font-size: 18px;
+        /* CARD */
+        .card{
+          background:var(--card);
+          border:1px solid var(--stroke);
+          border-radius:16px;
+          padding:20px;
+          transition:.2s;
         }
 
-        .container {
-          max-width: 1000px;
-          margin: auto;
-          padding: 40px 20px;
+        .card:hover{
+          transform:translateY(-6px);
+          border-color:var(--accent);
         }
 
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 20px;
-          margin-top: 30px;
+        .title{font-weight:700;font-size:18px}
+
+        .desc{color:var(--muted);margin-top:8px;font-size:14px}
+
+        .tag{
+          margin-top:12px;
+          font-size:12px;
+          display:block;
         }
 
-        .card {
-          background: var(--card);
-          border: 1px solid var(--border);
-          border-radius: 12px;
-          padding: 20px;
+        /* STATS */
+        .stats{
+          margin-top:10px;
+          display:flex;
+          flex-direction:column;
+          gap:6px;
+          font-size:13px;
+          color:var(--muted);
         }
 
-        .card h3 {
-          margin-top: 0;
-          color: var(--accent);
+        .stats strong{
+          color:var(--accent);
         }
 
-        .btn {
-          display: inline-block;
-          margin-top: 15px;
-          padding: 10px 15px;
-          background: var(--accent);
-          color: #000;
-          text-decoration: none;
-          border-radius: 8px;
-          font-weight: bold;
+        /* WIDGETS */
+        .widgets{
+          max-width:1100px;
+          margin:40px auto;
+          padding:0 20px;
+          display:grid;
+          grid-template-columns:1fr 1fr;
+          gap:20px;
         }
 
-        .btn:hover {
-          opacity: 0.85;
+        .widget{
+          background:var(--card);
+          border:1px solid var(--stroke);
+          border-radius:16px;
+          padding:15px;
         }
 
-        footer {
-          text-align: center;
-          padding: 30px;
-          color: var(--muted);
-          border-top: 1px solid var(--border);
-          margin-top: 50px;
+        .widget iframe{
+          width:100%;
+          height:250px;
+          border:0;
+          border-radius:12px;
         }
+
+        @media(max-width:800px){
+          .widgets{grid-template-columns:1fr;}
+        }
+        a{
+  color: inherit;
+  text-decoration: none;
+}
     </style>
 </head>
 
 <body>
 
 <header>
-    <h1>⚡ PulseEvents</h1>
-    <p class="subtitle">Automated Minecraft Event System with BossBar Countdown</p>
+    <h1>Ryvox Forge</h1>
+    <div class="sub">Minecraft Plugins • PvP Packs • Mods</div>
 </header>
 
-<div class="container">
+<div class="grid">
 
-    <div class="card">
-        <h3>📦 About</h3>
-        <p>
-            PulseEvents is a lightweight Minecraft plugin that automatically manages server events,
-            including announcements, countdowns, and random event execution.
+    <!-- PvPFlow -->
+    <a href="pvp/pvpflow.html" class="card card-link">
+        <div class="title">🔥 PvPFlow</div>
+        <div class="desc">PvP texture pack</div>
 
-            if you want to send idea click the button
+        <div class="stats">
+            📥 Modrinth: <strong id="pvp-mod">...</strong><br>
+            📥 CurseForge: <strong id="pvp-curse">...</strong>
+        </div>
+    </a>
 
-            <a class="btn"
-               href="https://github.com/Ryvox0/PulseEvents/issues/new?title=[IDEA]%20Your%20idea%20here"
-               target="_blank">
-                💡 Send Idea
-            </a>
-        </p>
+    <!-- NovaPixel -->
+    <a href="np/novapixel.html" class="card card-link">
+        <div class="title">✨ NovaPixel</div>
+        <div class="desc">Modern texture pack</div>
+
+        <div class="stats">
+            📥 Modrinth: <strong id="nova-mod">...</strong><br>
+            📥 CurseForge: <strong id="nova-curse">...</strong>
+        </div>
+    </a>
+
+    <!-- PulseEvents -->
+    <a href="PulseEvents/index.html" class="card card-link">
+        <div class="title">⚡ PulseEvents</div>
+        <div class="desc">Event plugin</div>
+
+        <div class="stats">
+            📥 Downloads: <strong id="pulse-mod">...</strong>
+        </div>
+    </a>
+
+</div>
+
+<div class="widgets">
+
+    <div class="widget">
+        <h3>💬 Discord</h3>
+        <iframe src="https://discord.com/widget?id=1434212767652511956&theme=dark"></iframe>
     </div>
 
-    <div class="grid">
+    <div class="widget">
 
-        <div class="card">
-            <h3>⚡ Features</h3>
-            <ul>
-                <li>Automatic event system</li>
-                <li>BossBar countdown</li>
-                <li>Random event selection</li>
-                <li>Multi-world support</li>
-                <li>Command system</li>
-            </ul>
-        </div>
+        <h3>📊 System Status</h3>
 
-        <div class="card">
-            <h3>
-                <a style="color: var(--accent);" href="../roadmap.html">
-                    📊 Roadmap
-                </a>
-            </h3>
-            <ul>
-                <li>✔ BossBar system</li>
-                <li>✔ Event scheduler</li>
-                <li>🔄 GUI event system</li>
-                <li>🔄 PlaceholderAPI support</li>
-                <li>🔮 Vault integration</li>
-            </ul>
-        </div>
+        <div style="color:var(--muted); font-size:13px; line-height:1.7">
 
-        <div class="card">
-            <h3>📥 Download</h3>
-            <p>Click below to get the latest version of PulseEvents.</p>
+            <p>🌐 Website: <strong id="status-site">Checking...</strong></p>
+            <p>🐙 GitHub API: <strong id="status-github">Checking...</strong></p>
+            <p>📦 Modrinth API: <strong id="status-modrinth">Checking...</strong></p>
+            <p>⚠️ CurseForge API: <strong id="status-curseforge">Checking...</strong></p>
 
-            <!-- 🔥 LINK DO DOWNLOADU -->
-            <a class="btn" href="https://modrinth.com/plugin/pulseevents" target="_blank">
-                Download Plugin
-            </a>
-        </div>
+            <hr style="margin:10px 0; border:1px solid rgba(255,255,255,0.08)">
 
-        <div class="card">
-            <h3>📌 Links</h3>
-
-            <ul>
-                <li>
-                    <a style="color: var(--accent);" href="https://github.com/Ryvox0/PulseEvents">
-                        GitHub Repository
-                    </a>
-                </li>
-
-                <li>
-                    <a style="color: var(--accent);" href="/WIP/WIP.html">
-                        Modrinth Page
-                    </a>
-                </li>
-
-                <li>
-                    <a style="color: var(--accent);" href="doc.html">
-                        Documentation
-                    </a>
-                </li>
-            </ul>
+            <p id="status-summary">Running diagnostics...</p>
 
         </div>
+
+    </div>
 
     </div>
 
 </div>
 
-<footer>
-    © 2026 PulseEvents • Minecraft Plugin
-</footer>
+<script>
+    async function loadStats(){
 
+      // MODRINTH
+      async function mod(slug, el){
+        try{
+          let r = await fetch("https://api.modrinth.com/v2/project/"+slug);
+          let d = await r.json();
+          document.getElementById(el).textContent = d.downloads.toLocaleString();
+        }catch{
+          document.getElementById(el).textContent = "N/A";
+        }
+      }
+
+      mod("pulseevents","pulse-mod");
+      mod("pvpflow","pvp-mod");
+      mod("novapixel","nova-mod");
+
+      // CURSEFORGE (scrape)
+      async function curse(slug, el){
+        try{
+          let proxy = "https://api.allorigins.win/raw?url=";
+          let url = encodeURIComponent("https://www.curseforge.com/minecraft/texture-packs/"+slug);
+
+          let res = await fetch(proxy+url);
+          let html = await res.text();
+
+          let match = html.match(/Downloads<\/span>\s*<span[^>]*>([\d,]+)/);
+
+          document.getElementById(el).textContent = match ? match[1] : "N/A";
+        }catch{
+          document.getElementById(el).textContent = "N/A";
+        }
+      }
+
+      curse("pvpflow","pvp-curse");
+      curse("novapixel","nova-curse");
+    }
+
+    loadStats();
+</script>
+<script>
+    async function checkStatus(){
+
+      const results = {
+        site: false,
+        github: false,
+        modrinth: false,
+        curseforge: false
+      };
+
+      // 🌐 SITE CHECK (self ping)
+      try{
+        const res = await fetch(window.location.href, { cache: "no-store" });
+        results.site = res.ok;
+      }catch{
+        results.site = false;
+      }
+
+      // 🐙 GITHUB API
+      try{
+        const res = await fetch("https://api.github.com");
+        results.github = res.ok;
+      }catch{
+        results.github = false;
+      }
+
+      // 📦 MODRINTH API
+      try{
+        const res = await fetch("https://api.modrinth.com/v2/project/pulseevents");
+        results.modrinth = res.ok;
+      }catch{
+        results.modrinth = false;
+      }
+
+      // ⚠️ CURSEFORGE (test endpoint proxy-safe)
+      try{
+        const res = await fetch("https://www.curseforge.com");
+        results.curseforge = res.ok;
+      }catch{
+        results.curseforge = false;
+      }
+
+      // 🔥 UI UPDATE
+      document.getElementById("status-site").textContent =
+        results.site ? "Online" : "Offline";
+
+      document.getElementById("status-github").textContent =
+        results.github ? "Operational" : "Down";
+
+      document.getElementById("status-modrinth").textContent =
+        results.modrinth ? "Operational" : "Down";
+
+      document.getElementById("status-curseforge").textContent =
+        results.curseforge ? "Reachable" : "Blocked";
+
+      // 📊 SUMMARY
+      const ok = Object.values(results).filter(v => v).length;
+
+      let msg = "";
+
+      if(ok === 4) msg = "All systems operational.";
+      else if(ok >= 2) msg = "Partial degradation detected.";
+      else msg = "Major outages detected.";
+
+      document.getElementById("status-summary").textContent = msg;
+    }
+
+    checkStatus();
+
+    // refresh co 60 sekund
+    setInterval(checkStatus, 60000);
+</script>
 </body>
 </html>
