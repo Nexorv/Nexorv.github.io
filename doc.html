@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulseEvents Documentation</title>
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --text: #e6edf3;
+      --muted: #9da7b3;
+      --accent: #58a6ff;
+      --border: #30363d;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 38px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+
+    code {
+      background: #0b0f14;
+      padding: 3px 6px;
+      border-radius: 6px;
+      color: #c9d1d9;
+    }
+
+    .cmd {
+      margin: 8px 0;
+      padding: 8px;
+      border-left: 3px solid var(--accent);
+      background: #0b0f14;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 30px;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>📚 PulseEvents Documentation</h1>
+  <p class="subtitle">Full guide for installation, commands and configuration</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>📦 Overview</h2>
+    <p>
+      PulseEvents is a Minecraft plugin that automatically manages server events.
+      It handles event selection, announcements, countdowns and execution using a BossBar system.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>⚙️ Installation</h2>
+    <p>1. Download the plugin JAR file</p>
+    <p>2. Place it into your <code>plugins/</code> folder</p>
+    <p>3. Restart your server</p>
+    <p>4. Configure files in <code>/plugins/PulseEvents/</code></p>
+  </div>
+
+  <div class="card">
+    <h2>🧭 Commands</h2>
+
+    <div class="cmd"><code>/pe help</code> – Show all commands</div>
+    <div class="cmd"><code>/pe start</code> – Start a random event</div>
+    <div class="cmd"><code>/pe stop</code> – Stop current event</div>
+    <div class="cmd"><code>/pe status</code> – Show current event</div>
+    <div class="cmd"><code>/pe reload</code> – Reload config & language</div>
+    <div class="cmd"><code>/pe update</code> – Check for updates</div>
+
+  </div>
+
+  <div class="card">
+    <h2>🌐 Permissions</h2>
+    <p>
+      <code>pulseevents.admin</code> – access to all commands<br>
+      <code>pulseevents.use</code> – basic usage permissions
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>⚡ Features</h2>
+    <ul>
+      <li>Automatic event system</li>
+      <li>BossBar countdown</li>
+      <li>Random event selection</li>
+      <li>Multi-world support</li>
+      <li>Language system (EN/PL)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>⚠️ Notes</h2>
+    <ul>
+      <li>Events must be pre-registered in config</li>
+      <li>Players cannot create events in-game</li>
+      <li>Plugin is still under active development</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>💡 Links</h2>
+    <p>
+      <a href="index.html">← Back to main page</a><br>
+      <a href="roadmap.html">Roadmap</a><br>
+      <a href="https://github.com/Ryvox0/PulseEvents" target="_blank">GitHub</a>
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 PulseEvents • Documentation
+</footer>
+
+</body>
+</html>
