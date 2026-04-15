@@ -2,12 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voidspire</title>
 
+  <!-- BASIC -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Voidspire</title>
+  <meta name="description" content="Voidspire - experimental Minecraft mod focused on dynamic events and gameplay systems.">
+  <meta name="author" content="Nexorv">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Voidspire">
+  <meta property="og:description" content="Experimental Minecraft mod.">
+  <meta property="og:url" content="https://Nexorv.github.io/voidspire/">
+  <meta property="og:image" content="../assets/preview.png">
+
+  <!-- THEME -->
+  <meta name="theme-color" content="#58a6ff">
+
+  <!-- ICONS -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- NAV -->
+  <link rel="stylesheet" href="../assets/ui/ryvox-nav.css">
+  <script defer src="../assets/ui/ryvox-nav.js"></script>
+
+  <!-- PAGE CSS -->
   <link rel="stylesheet" href="../assets/styles/pages/voidspire.css">
 </head>
 <body>
+
+<!-- NAVBAR -->
+<div id="ryvox-nav"></div>
+
+<!-- BACKGROUND -->
+<canvas id="bg"></canvas>
 
 <div class="voidspire-page">
 
@@ -32,22 +62,22 @@
 
     <div class="vs-grid">
       <div class="vs-card">
-        <div class="vs-title">⚡ Dynamic Events</div>
+        <div class="vs-title"><i data-lucide="zap"></i> Dynamic Events</div>
         <div class="vs-desc">Unpredictable world-changing events.</div>
       </div>
 
       <div class="vs-card">
-        <div class="vs-title">🌍 World Interaction</div>
+        <div class="vs-title"><i data-lucide="globe"></i> World Interaction</div>
         <div class="vs-desc">Environment reacts to players.</div>
       </div>
 
       <div class="vs-card">
-        <div class="vs-title">🧩 Modular System</div>
+        <div class="vs-title"><i data-lucide="layers"></i> Modular System</div>
         <div class="vs-desc">Expandable and API-ready.</div>
       </div>
 
       <div class="vs-card">
-        <div class="vs-title">📊 Integrations</div>
+        <div class="vs-title"><i data-lucide="bar-chart"></i> Integrations</div>
         <div class="vs-desc">Future server & plugin support.</div>
       </div>
     </div>
@@ -87,6 +117,13 @@
 
 </div>
 
-<script src="../assets/scripts/pages/voidspire.js"></script>
+<!-- PAGE JS -->
+<script defer src="../assets/scripts/pages/voidspire.js"></script>
+
+<!-- LUCIDE INIT -->
+<script>
+  lucide.createIcons();
+</script>
+
 </body>
 </html>
