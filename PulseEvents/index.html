@@ -5,38 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PulseEvents - Minecraft Plugin</title>
 
-    <meta name="description" content="Automated Minecraft event plugin with BossBar countdown, random events and full system management.">
+    <meta name="description" content="Advanced automated Minecraft event plugin with queue system, BossBar UI, cooldowns and modular architecture.">
 
     <meta property="og:title" content="PulseEvents Plugin">
-    <meta property="og:description" content="Automated event system with BossBar and random events.">
+    <meta property="og:description" content="Advanced automated event system with queue, UI and modular managers.">
     <meta property="og:url" content="https://Nexorv.github.io/PulseEvents/">
     <meta property="og:image" content="https://Nexorv.github.io/assets/pulseevents.png">
 
     <meta name="twitter:title" content="PulseEvents Plugin">
-    <meta name="twitter:description" content="Automated Minecraft event system.">
+    <meta name="twitter:description" content="Advanced automated Minecraft event system.">
     <meta name="twitter:image" content="https://Nexorv.github.io/assets/pulseevents.png">
+
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../assets/ui/ryvox-nav.css">
     <link rel="stylesheet" href="../assets/styles/pages/pulseevents.css">
     <script defer src="../assets/ui/ryvox-nav.js"></script>
 </head>
 <body>
+
 <div id="ryvox-nav"></div>
 <div class="glow"></div>
 
 <section class="hero">
     <h1>PulseEvents</h1>
-    <p>Automated Minecraft event system with BossBar countdown & random events</p>
+    <p>Next-gen automated Minecraft event system with queue engine & live UI</p>
 
     <div class="btns">
         <a class="btn primary" href="https://modrinth.com/plugin/pulseevents" target="_blank">
             <i data-lucide="download"></i>
-            Download
+            Modrinth
         </a>
 
-        <a class="btn secondary" href="../index.html">
-            <i data-lucide="arrow-left"></i>
-            Back
+        <a class="btn primary" href="https://www.curseforge.com/minecraft/bukkit-plugins/pulseevents" target="_blank">
+            <i data-lucide="download"></i>
+            CurseForge
+        </a>
+
+        <a class="btn primary" href="https://www.spigotmc.org/resources/pulseevents.134140/" target="_blank">
+            <i data-lucide="download"></i>
+            Spigot
+        </a>
+
+        <a class="btn secondary" href="doc.html">
+            <i data-lucide="book"></i>
+            Documentation
+        </a>
+
+        <a class="btn secondary" href="roadmap.html">
+            <i data-lucide="map"></i>
+            Roadmap
         </a>
     </div>
 
@@ -44,23 +61,42 @@
 </section>
 
 <div class="container">
+
     <div class="card">
         <h2><i data-lucide="zap" class="icon"></i>Overview</h2>
         <p>
-            PulseEvents automatically manages Minecraft server events using a random event system,
-            announcements, and BossBar countdowns — fully server-driven.
+            PulseEvents is a fully automated event engine for Minecraft servers.
+            It handles event scheduling, execution, announcements and UI feedback
+            without manual admin interaction.
         </p>
+        <p>
+            Built with modular architecture, it ensures stability, scalability and clean integration with other plugins.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2><i data-lucide="cpu" class="icon"></i>Core Systems</h2>
+        <div class="grid">
+            <div class="feature">🧠 EventManager</div>
+            <div class="feature">📢 AnnouncementManager</div>
+            <div class="feature">🎬 LiveUIManager</div>
+            <div class="feature">📦 Queue Engine</div>
+            <div class="feature">🛡 Anti-Abuse</div>
+            <div class="feature">⚙ Config System</div>
+        </div>
     </div>
 
     <div class="card">
         <h2><i data-lucide="layers" class="icon"></i>Features</h2>
         <div class="grid">
-            <div class="feature">⚡ Auto event system</div>
+            <div class="feature">⚡ Automatic events</div>
+            <div class="feature">📦 Queue system</div>
             <div class="feature">🎯 BossBar countdown</div>
-            <div class="feature">🎲 Random event selection</div>
-            <div class="feature">🌍 Multi-world support</div>
-            <div class="feature">🔐 Permission system</div>
-            <div class="feature">🧠 Anti-spam cooldowns</div>
+            <div class="feature">🎬 ActionBar & Titles</div>
+            <div class="feature">🌍 Multi-world</div>
+            <div class="feature">💰 Vault support</div>
+            <div class="feature">🔐 Permissions</div>
+            <div class="feature">🧠 Cooldowns</div>
         </div>
     </div>
 
@@ -69,21 +105,32 @@
         <p>
             /pe start — start event<br>
             /pe stop — stop event<br>
-            /pe status — check system<br>
-            /pe reload — reload config<br>
-            /pe update — check updates
+            /pe status — system state<br>
+            /pe reload — safe reload<br>
+            /pe update — check updates<br>
+            /pe queue add &lt;event&gt;<br>
+            /pe queue list
         </p>
     </div>
 
     <div class="card">
-        <h2><i data-lucide="rocket"></i>Planned Features</h2>
+        <h2><i data-lucide="shield"></i>Stability</h2>
         <div class="grid">
-            <div class="feature">🔮 In-game event builder</div>
-            <div class="feature">📊 PlaceholderAPI support</div>
-            <div class="feature">💰 Vault integration</div>
-            <div class="feature">🎬 ActionBar / Titles</div>
+            <div class="feature">🛑 Single event lock</div>
+            <div class="feature">⏱ Cooldowns</div>
+            <div class="feature">🚫 Anti-spam</div>
+            <div class="feature">🔄 Safe reload</div>
         </div>
     </div>
+
+    <div class="card">
+        <h2><i data-lucide="rocket"></i>Status</h2>
+        <p>
+            PulseEvents is actively developed and available for download on major platforms.
+            New features and improvements are released regularly.
+        </p>
+    </div>
+
 </div>
 
 <script defer src="../assets/scripts/pages/pulseevents.js"></script>

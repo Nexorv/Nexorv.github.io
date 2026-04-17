@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PulseEvents Documentation</title>
 
-  <meta name="description" content="Full documentation for PulseEvents plugin: installation, commands, permissions, event system, queue and configuration.">
+  <title>PulseEvents Documentation</title>
+  <meta name="description" content="Advanced documentation for PulseEvents plugin: architecture, configuration, API, queue system, UI and anti-abuse.">
 
   <meta property="og:title" content="PulseEvents Docs">
-  <meta property="og:description" content="Learn how to use PulseEvents plugin with events, queue system and configuration.">
+  <meta property="og:description" content="Complete guide for PulseEvents plugin system, events, queue and configuration.">
   <meta property="og:url" content="https://ryvox0.github.io/PulseEvents/doc.html">
 
   <link rel="stylesheet" href="../assets/ui/ryvox-nav.css">
@@ -23,7 +23,7 @@
 
 <div class="hero">
   <h1>PulseEvents Documentation</h1>
-  <p>Events • Queue System • Commands • Permissions • Configuration</p>
+  <p>Architecture • Events • Queue • API • UI • Config</p>
 </div>
 
 <div class="container">
@@ -31,72 +31,100 @@
   <div class="card">
     <h2>📦 Overview</h2>
     <p>
-      PulseEvents is a modular Minecraft (Bukkit/Spigot) plugin that automatically runs server events with announcements,
-      UI feedback and configurable rewards.
+      PulseEvents is a modular Minecraft plugin designed for fully automated event execution with
+      a structured lifecycle, queue system, and real-time UI feedback.
     </p>
     <p>
-      The system is built around stability, anti-abuse protection and a queue-based event execution model.
+      It is built with scalability and stability in mind, separating responsibilities into dedicated managers.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>🏗 Architecture</h2>
+    <ul>
+      <li><strong>EventManager</strong> — controls event lifecycle (start, stop, state)</li>
+      <li><strong>AnnouncementManager</strong> — countdowns, broadcasts, pre-start messages</li>
+      <li><strong>LiveUIManager</strong> — BossBar, ActionBar, Titles</li>
+    </ul>
+    <p>
+      Each component is isolated to prevent system conflicts and improve maintainability.
     </p>
   </div>
 
   <div class="card">
     <h2>⚙ Installation</h2>
-    <p>1. Download the plugin</p>
-    <p>2. Place it in <code>plugins/</code></p>
-    <p>3. Restart the server</p>
-    <p>4. Configure <code>/plugins/PulseEvents/config.yml</code></p>
+    <ol>
+      <li>Download the plugin (when available)</li>
+      <li>Place it inside <code>plugins/</code></li>
+      <li>Start or restart the server</li>
+      <li>Edit <code>plugins/PulseEvents/config.yml</code></li>
+    </ol>
   </div>
 
   <div class="card">
-    <h2>🎯 Event System</h2>
+    <h2>🎯 Event Lifecycle</h2>
     <ul>
-      <li>Each event is managed by EventManager</li>
-      <li>Only one event can run at a time</li>
-      <li>Events can be started manually or via queue</li>
-      <li>Announcement system runs countdown before start</li>
+      <li>Idle → Waiting for trigger</li>
+      <li>Announcing → Countdown active</li>
+      <li>Running → Event logic executing</li>
+      <li>Ending → Cleanup phase</li>
     </ul>
+    <p>Only one event can exist in "Running" state at any time.</p>
   </div>
 
   <div class="card">
-    <h2>📦 Event Queue System</h2>
-    <p>PulseEvents includes a FIFO queue system for events.</p>
+    <h2>📦 Queue System</h2>
+    <p>PulseEvents uses a FIFO queue to manage events.</p>
+
     <ul>
-      <li>Events are executed in order</li>
-      <li>Next event starts automatically after current ends</li>
-      <li>No overlapping events allowed</li>
+      <li>Prevents overlapping events</li>
+      <li>Automatically starts next event</li>
+      <li>Supports manual queue control</li>
     </ul>
 
-    <div class="cmd"><code>/pe queue add &lt;event&gt;</code> — Add event to queue</div>
-    <div class="cmd"><code>/pe queue list</code> — Show queue</div>
-    <div class="cmd"><code>/pe queue remove &lt;index&gt;</code> — Remove from queue</div>
-    <div class="cmd"><code>/pe queue clear</code> — Clear queue</div>
+    <div class="cmd"><code>/pe queue add &lt;event&gt;</code> — enqueue</div>
+    <div class="cmd"><code>/pe queue list</code> — show queue</div>
+    <div class="cmd"><code>/pe queue remove &lt;index&gt;</code> — remove</div>
+    <div class="cmd"><code>/pe queue clear</code> — reset</div>
   </div>
 
   <div class="card">
     <h2>🧠 Cooldown System</h2>
-    <p>Cooldowns are fully configurable in <code>config.yml</code>.</p>
 
-    <pre><code>
-cooldown:
+    <pre><code>cooldown:
   event-start: 300
   command: 5
-    </code></pre>
+</code></pre>
 
     <ul>
-      <li>Prevents event spam</li>
-      <li>Works after /reload</li>
-      <li>Supports command + event cooldown separation</li>
+      <li>Global event delay</li>
+      <li>Command spam protection</li>
+      <li>Persists after reload</li>
     </ul>
   </div>
 
   <div class="card">
+    <h2>📡 Live UI System</h2>
+    <ul>
+      <li>BossBar countdown before event start</li>
+      <li>ActionBar updates during event</li>
+      <li>Title messages for key phases</li>
+    </ul>
+
+    <pre><code>ui:
+  bossbar: true
+  actionbar: true
+  title: true
+</code></pre>
+  </div>
+
+  <div class="card">
     <h2>⚙ Commands</h2>
-    <div class="cmd"><code>/pe start</code> — Start event</div>
-    <div class="cmd"><code>/pe stop</code> — Stop event</div>
-    <div class="cmd"><code>/pe status</code> — System status</div>
-    <div class="cmd"><code>/pe reload</code> — Reload config safely</div>
-    <div class="cmd"><code>/pe queue add &lt;event&gt;</code> — Add to queue</div>
-    <div class="cmd"><code>/pe queue list</code> — View queue</div>
+    <div class="cmd"><code>/pe start</code> — force start</div>
+    <div class="cmd"><code>/pe stop</code> — force stop</div>
+    <div class="cmd"><code>/pe status</code> — current state</div>
+    <div class="cmd"><code>/pe reload</code> — safe reload</div>
+    <div class="cmd"><code>/pe update</code> — check updates</div>
   </div>
 
   <div class="card">
@@ -107,48 +135,59 @@ cooldown:
       <div class="box"><code>pulseevents.start</code><br>Start events</div>
       <div class="box"><code>pulseevents.stop</code><br>Stop events</div>
       <div class="box"><code>pulseevents.reload</code><br>Reload plugin</div>
-      <div class="box"><code>pulseevents.queue.add</code><br>Add to queue</div>
-      <div class="box"><code>pulseevents.queue.remove</code><br>Remove from queue</div>
+      <div class="box"><code>pulseevents.queue.*</code><br>Queue management</div>
     </div>
   </div>
 
   <div class="card">
-    <h2>🛡 Anti-Abuse System</h2>
+    <h2>🛡 Anti-Abuse</h2>
     <ul>
-      <li>Single event lock (no overlapping events)</li>
-      <li>Command cooldown system</li>
-      <li>Event cooldown from config</li>
-      <li>Safe reload handling</li>
+      <li>Single event lock</li>
+      <li>Cooldown enforcement</li>
+      <li>Queue validation</li>
+      <li>Safe reload system</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2>⚡ Features</h2>
+    <h2>⚙ Configuration Example</h2>
+
+    <pre><code>events:
+  coin_rain:
+    enabled: true
+    duration: 60
+    reward: 100
+
+  meteor:
+    enabled: true
+    duration: 45
+</code></pre>
+
+  </div>
+
+  <div class="card">
+    <h2>🔌 Integrations</h2>
     <ul>
-      <li>Automatic event system</li>
-      <li>Queue-based execution</li>
-      <li>BossBar / ActionBar / Title support</li>
-      <li>Economy rewards (Vault optional)</li>
-      <li>Custom item rewards (e.g. Coin Rain)</li>
+      <li>Vault — economy rewards</li>
+      <li>PlaceholderAPI — dynamic values</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2>🔌 Compatibility</h2>
-    <ul>
-      <li>Bukkit</li>
-      <li>Spigot</li>
-      <li>Paper</li>
-    </ul>
-    <p>Optional: Vault, PlaceholderAPI</p>
+    <h2>🧩 Developer API (planned)</h2>
+    <pre><code>PulseEventsAPI.startEvent("coin_rain");
+PulseEventsAPI.stopEvent();
+PulseEventsAPI.getCurrentEvent();
+</code></pre>
+    <p>API will allow external plugins to control events.</p>
   </div>
 
   <div class="card">
     <h2>⚠ Notes</h2>
     <ul>
-      <li>Events must be configured in config.yml</li>
+      <li>Events must be defined in config.yml</li>
       <li>Only one event runs at a time</li>
-      <li>Queue system controls execution order</li>
+      <li>Queue system is required for automation</li>
     </ul>
   </div>
 

@@ -3,64 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>PulseEvents Roadmap</title>
 
-    <meta name="description" content="Development roadmap and upcoming features for PulseEvents plugin.">
+    <meta name="description" content="Live development roadmap for PulseEvents plugin including completed, in-progress and planned features.">
 
     <meta property="og:title" content="PulseEvents Roadmap">
-    <meta property="og:description" content="Track progress and upcoming features.">
+    <meta property="og:description" content="Track development progress, completed systems and upcoming features.">
     <meta property="og:url" content="https://Nexorv.github.io/PulseEvents/roadmap.html">
+
     <link rel="stylesheet" href="../assets/ui/ryvox-nav.css">
     <link rel="stylesheet" href="../assets/styles/pages/pulseevents-roadmap.css">
     <script defer src="../assets/ui/ryvox-nav.js"></script>
 </head>
+
 <body>
+
 <div id="ryvox-nav"></div>
 <div class="glow"></div>
 
-<div class="hero">
+<section class="hero">
     <h1>PulseEvents Roadmap</h1>
-    <p>Progress • Development • Future features</p>
-</div>
+    <p>Development progress • Systems • Future expansion</p>
+</section>
 
 <div class="container">
+
     <div class="item">
-        <span class="status done">DONE</span>
+        <span class="status info">SYSTEM</span>
+        <h3>Auto-Sorting Roadmap</h3>
+        <p>
+            Items are automatically sorted by status priority:
+            <b>COMPLETED → IN DEVELOPMENT → PLANNED</b>.
+        </p>
+    </div>
+
+    <!-- COMPLETED -->
+    <div class="item">
+        <span class="status done">COMPLETED</span>
         <h3>Core Event Engine</h3>
-        <p>Event system with selection & execution logic.</p>
+        <p>Full lifecycle event system with execution control, state tracking and safe stopping logic.</p>
     </div>
 
     <div class="item">
-        <span class="status done">DONE</span>
-        <h3>BossBar Countdown</h3>
-        <p>Live countdown before event start.</p>
+        <span class="status done">COMPLETED</span>
+        <h3>BossBar Countdown System</h3>
+        <p>Real-time visual countdown displayed to players before event start.</p>
     </div>
 
     <div class="item">
-        <span class="status progress">IN PROGRESS</span>
-        <h3>GUI Event Manager</h3>
-        <p>In-game GUI for easier event control.</p>
+        <span class="status done">COMPLETED</span>
+        <h3>Announcement System</h3>
+        <p>Automatic broadcast messages with configurable timing before events.</p>
     </div>
 
     <div class="item">
-        <span class="status progress">IN PROGRESS</span>
-        <h3>Config Expansion</h3>
-        <p>More advanced YAML configuration system.</p>
-    </div>
-
-    <div class="item">
-        <span class="status planned">PLANNED</span>
-        <h3>PlaceholderAPI Support</h3>
-        <p>Dynamic placeholders integration.</p>
-    </div>
-
-    <div class="item">
-        <span class="status planned">PLANNED</span>
+        <span class="status done">COMPLETED</span>
         <h3>Vault Integration</h3>
-        <p>Economy & permissions support.</p>
+        <p>Economy support for rewards, payouts and plugin-based currency handling.</p>
     </div>
+
+    <div class="item">
+        <span class="status done">COMPLETED</span>
+        <h3>Cooldown System</h3>
+        <p>Prevents spam execution of commands and event triggers.</p>
+    </div>
+
+    <div class="item">
+        <span class="status done">COMPLETED</span>
+        <h3>Multi-World Support</h3>
+        <p>Events can run per-world with full isolation and world-based restrictions.</p>
+    </div>
+
+    <!-- IN DEVELOPMENT -->
+    <div class="item">
+        <span class="status progress">IN DEVELOPMENT</span>
+        <h3>GUI Event Manager</h3>
+        <p>Interactive in-game GUI for controlling events without commands.</p>
+    </div>
+
+    <div class="item">
+        <span class="status progress">IN DEVELOPMENT</span>
+        <h3>Advanced Config System</h3>
+        <p>Modular YAML configuration with per-event customization and overrides.</p>
+    </div>
+
+    <div class="item">
+        <span class="status progress">IN DEVELOPMENT</span>
+        <h3>Live UI Expansion</h3>
+        <p>Enhanced BossBar, ActionBar and Title system with dynamic updates.</p>
+    </div>
+
+    <div class="item">
+        <span class="status progress">IN DEVELOPMENT</span>
+        <h3>Event Queue Optimizer</h3>
+        <p>Improved queue handling with priority support and smarter scheduling.</p>
+    </div>
+
+    <!-- PLANNED -->
+    <div class="item">
+        <span class="status planned">PLANNED</span>
+        <h3>PlaceholderAPI Integration</h3>
+        <p>Dynamic placeholders for player/server data in messages and UI.</p>
+    </div>
+
+    <div class="item">
+        <span class="status planned">PLANNED</span>
+        <h3>Developer API</h3>
+        <p>External API for other plugins to trigger and control events.</p>
+    </div>
+
+    <div class="item">
+        <span class="status planned">PLANNED</span>
+        <h3>Web Control Panel</h3>
+        <p>Browser-based dashboard for live monitoring and event management.</p>
+    </div>
+
+    <div class="item">
+        <span class="status planned">PLANNED</span>
+        <h3>Custom Event Builder</h3>
+        <p>In-game or config-based system to create fully custom events.</p>
+    </div>
+
 </div>
 
 <footer>© 2026 PulseEvents</footer>
+
 </body>
 </html>
