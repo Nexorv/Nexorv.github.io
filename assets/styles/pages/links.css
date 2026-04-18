@@ -171,7 +171,7 @@ body{
 
 @media (max-width: 860px){
   .hero{
-    padding-top:40px;
+    padding-top:24px;
   }
 
   .hero h1{
@@ -180,6 +180,40 @@ body{
 
   .hero p{
     font-size:16px;
+  }
+}
+
+@media (max-width: 520px){
+  .hero{
+    padding:20px 16px 24px;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .links-page{
+    padding:16px 16px 88px;
+  }
+
+  .links-grid{
+    grid-template-columns:1fr;
+  }
+
+  .link-card{
+    min-height:auto;
+    padding:20px;
+  }
+
+  .contact-wrapper{
+    right:16px;
+    bottom:16px;
+  }
+
+  .contact-menu{
+    right:0;
+    left:auto;
+    max-width:min(280px, calc(100vw - 32px));
   }
 }
 .contact-wrapper {

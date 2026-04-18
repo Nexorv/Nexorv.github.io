@@ -213,7 +213,48 @@ html,body{
 
 /* RESPONSIVE */
 @media(max-width:800px){
+  .vs-hero{
+    padding:96px 20px 72px;
+  }
+
   .vs-hero h1{
     font-size:48px;
+  }
+}
+
+@media(max-width:520px){
+  .vs-hero{
+    padding:84px 16px 52px;
+  }
+
+  .vs-hero h1{
+    font-size:38px;
+    line-height:1.05;
+  }
+
+  .vs-sub{
+    font-size:17px;
+  }
+
+  .vs-section{
+    padding:44px 16px;
+  }
+
+  .vs-grid{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .vs-card,
+  .vs-phase,
+  .vs-disabled{
+    padding:20px;
+  }
+
+  .vs-btn{
+    display:block;
+    width:100%;
+    max-width:280px;
+    margin:10px auto 0;
   }
 }

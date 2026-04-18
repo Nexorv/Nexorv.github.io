@@ -122,12 +122,13 @@
 
       <div class="rf-group" data-rf-group="pulseevents">
         <button class="rf-item rf-item--toggle" data-rf-toggle="pulseevents">
-          PulseEvents
+          <span>PulseEvents</span>
+          <span class="rf-caret" aria-hidden="true"></span>
         </button>
         <div class="rf-sub">
-          <a data-route="pulseevents-overview" href="${base}/PulseEvents/index.html">Overview</a>
-          <a data-route="pulseevents-docs" href="${base}/PulseEvents/doc.html">Docs</a>
-          <a data-route="pulseevents-roadmap" href="${base}/PulseEvents/roadmap.html">Roadmap</a>
+          <a class="rf-sub__item" data-route="pulseevents-overview" href="${base}/PulseEvents/index.html">Overview</a>
+          <a class="rf-sub__item" data-route="pulseevents-docs" href="${base}/PulseEvents/doc.html">Docs</a>
+          <a class="rf-sub__item" data-route="pulseevents-roadmap" href="${base}/PulseEvents/roadmap.html">Roadmap</a>
         </div>
       </div>
 
@@ -169,6 +170,59 @@
     if (el) el.textContent = route.crumb;
   }
 
+  function bindInteractions(root){
+    const burger = root.querySelector("[data-rf-burger]");
+    const tree = root.querySelector(".rf-nav__tree");
+    const groups = root.querySelectorAll("[data-rf-group]");
+    const mobileQuery = window.matchMedia("(max-width: 860px)");
+
+    function setMobileOpen(isOpen){
+      root.dataset.mobileOpen = isOpen ? "true" : "false";
+      if (burger) burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      if (tree) tree.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    }
+
+    function syncViewportState(){
+      if (!mobileQuery.matches){
+        setMobileOpen(false);
+      } else if (!root.dataset.mobileOpen){
+        setMobileOpen(false);
+      }
+    }
+
+    if (burger){
+      burger.addEventListener("click", function(){
+        const next = root.dataset.mobileOpen !== "true";
+        setMobileOpen(next);
+      });
+    }
+
+    groups.forEach(group=>{
+      const toggle = group.querySelector("[data-rf-toggle]");
+      if (!toggle) return;
+
+      toggle.type = "button";
+      toggle.setAttribute("aria-expanded", group.dataset.open === "true" ? "true" : "false");
+
+      toggle.addEventListener("click", function(){
+        const next = group.dataset.open !== "true";
+        group.dataset.open = next ? "true" : "false";
+        toggle.setAttribute("aria-expanded", next ? "true" : "false");
+      });
+    });
+
+    root.querySelectorAll("a[href]").forEach(link=>{
+      link.addEventListener("click", function(){
+        if (mobileQuery.matches){
+          setMobileOpen(false);
+        }
+      });
+    });
+
+    syncViewportState();
+    mobileQuery.addEventListener("change", syncViewportState);
+  }
+
 
   /*
     =========================
@@ -192,8 +246,10 @@
     const root = mount.querySelector("[data-rf-nav]");
     if (!root) return;
 
+    document.documentElement.classList.add("rf-nav-ready");
     setActive(root, route);
     setCrumb(root, route);
+    bindInteractions(root);
   }
 
   if (document.readyState === "loading"){

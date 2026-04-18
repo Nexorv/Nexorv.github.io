@@ -156,6 +156,41 @@ p{
 a{text-decoration:none;color:inherit}
 
 @media(max-width:800px){
+  .hero{
+    padding:96px 20px 48px;
+  }
+
   .hero h1{font-size:44px;}
 }
 
+@media(max-width:520px){
+  .hero{
+    padding:84px 16px 36px;
+  }
+
+  .hero h1{
+    font-size:36px;
+    line-height:1.05;
+  }
+
+  .btns{
+    gap:10px;
+  }
+
+  .btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  .container{
+    padding:16px;
+  }
+
+  .card{
+    padding:22px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+}

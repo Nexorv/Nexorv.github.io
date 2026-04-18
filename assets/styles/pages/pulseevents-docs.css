@@ -112,3 +112,41 @@ footer{
   z-index:-1;
 }
 
+@media(max-width:800px){
+  .hero{
+    padding:96px 20px 32px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+}
+
+@media(max-width:520px){
+  .hero{
+    padding:84px 16px 28px;
+  }
+
+  .hero h1{
+    font-size:34px;
+    line-height:1.08;
+  }
+
+  .container{
+    padding:16px;
+  }
+
+  .card,
+  .box,
+  .cmd{
+    padding:18px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  footer{
+    padding:28px 16px 36px;
+  }
+}
