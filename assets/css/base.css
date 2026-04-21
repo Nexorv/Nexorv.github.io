@@ -108,6 +108,12 @@ main,
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(22px);
   box-shadow: 0 16px 42px rgba(0, 0, 0, 0.24);
+  transition: transform 250ms ease;
+  z-index: 9999;
+}
+
+.navbar.nav-hidden {
+  transform: translateY(-120%);
 }
 
 .nav-container,
@@ -319,6 +325,18 @@ main,
 .btn-secondary {
   background: rgba(255, 255, 255, 0.04);
   box-shadow: 0 0 24px rgba(159, 92, 255, 0.1);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
 }
 
 .signal-pill,

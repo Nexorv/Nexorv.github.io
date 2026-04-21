@@ -2,7 +2,7 @@ const navbar = document.querySelector(".navbar");
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
 
-let lastScroll = 0;
+let lastScroll = window.pageYOffset;
 
 if (navbar && navToggle && navLinks) {
 
@@ -31,6 +31,11 @@ if (navbar && navToggle && navLinks) {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") setMenu(false);
   });
+
+  // HIDE NAVBAR ON INITIAL LOAD IF SCROLLED
+  if (window.pageYOffset > 80) {
+    navbar.classList.add("nav-hidden");
+  }
 
   // AUTO HIDE NAVBAR ON SCROLL
   window.addEventListener("scroll", () => {

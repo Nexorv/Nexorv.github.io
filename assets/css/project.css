@@ -63,3 +63,83 @@
   align-items: flex-start; /* wszystko startuje równo z lewej */
 }
 
+/* ================= GUIDE SECTION ================= */
+
+.guide-section {
+  padding: 4rem 0;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.guide-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.step-card {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(74, 168, 255, 0.2), rgba(53, 242, 255, 0.2));
+  border: 2px solid rgba(53, 242, 255, 0.4);
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cyan);
+}
+
+.step-card h3 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+}
+
+.step-card p {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.step-card code {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background: rgba(53, 242, 255, 0.1);
+  border: 1px solid rgba(53, 242, 255, 0.2);
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  color: var(--cyan);
+}
+
+.guide-note {
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(74, 168, 255, 0.08), rgba(53, 242, 255, 0.08));
+}
+
+.guide-note h4 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .guide-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
