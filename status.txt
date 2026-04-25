@@ -1,0 +1,5 @@
+operational
+testing
+down
+maintenance
+unknown

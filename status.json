@@ -1,7 +1,23 @@
 {
-  "memorychain": "operational",
-  "pulseevents": "testing",
-  "corecasino": "stable",
-  "players": 0,
-  "economy": "0"
+  "plugins": {
+    "MemoryChain": {
+      "status": "maintenance",
+      "download": "None",
+      "version": "1.0.0",
+      "lastUpdate": "2026-04-20"
+    },
+    "PulseEvents": {
+      "status": "operational",
+      "download": "https://modrinth.com/plugin/pulseevents",
+      "version": "0.0.3",
+      "lastUpdate": "2026-04-17"
+    },
+    "CoreCasino": {
+      "status": "testing",
+      "download": "None",
+      "version": "1.0.0",
+      "lastUpdate": "2026-04-25"
+    }
+  }
 }
+
