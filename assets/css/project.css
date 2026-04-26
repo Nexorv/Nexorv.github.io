@@ -42,6 +42,10 @@
   text-shadow: 0 0 28px rgba(88, 184, 255, 0.12);
 }
 
+.page-project.page-casinocore .page-hero h1 {
+  text-shadow: 0 0 28px rgba(255, 91, 115, 0.2);
+}
+
 .page-project.page-rewardflow .page-hero h1 {
   text-shadow: 0 0 28px rgba(53, 242, 255, 0.12);
 }

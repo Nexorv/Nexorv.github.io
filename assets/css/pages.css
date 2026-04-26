@@ -152,7 +152,7 @@
   font-size: clamp(1.8rem, 4vw, 3rem);
 }
 
-.projects-grid,
+..projects-grid,
 .contact-grid,
 .wip-layout,
 .meta-layout {
@@ -161,13 +161,48 @@
 }
 
 .projects-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .contact-grid,
 .wip-layout,
 .meta-layout {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1.1rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, rgba(53, 242, 255, 0.14), rgba(74, 168, 255, 0.12));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.project-icon img {
+  max-width: 100%;
+  display: block;
+}
+
+.project-icon span {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.18em;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.project-icon-casino {
+  background: radial-gradient(circle at top left, rgba(255, 91, 115, 0.2), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(255, 218, 88, 0.22), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 77, 109, 0.08));
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .project-card {
@@ -278,6 +313,14 @@
 
 .page-hero h1 {
   font-size: clamp(2.8rem, 8vw, 5rem);
+}
+
+.project-title {
+  margin: 1rem 0 0.8rem;
+  line-height: 1.02;
+  letter-spacing: 0.14em;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
 }
 
 .page-hero-blue h1 {

@@ -1,0 +1,167 @@
+@import url("pages.css");
+@import url("project.css");
+
+.page-casinocore .page-hero {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.page-casinocore .page-hero .section-label {
+  display: inline-flex;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.12em;
+}
+
+.page-casinocore .lang-toggle {
+  margin-left: auto;
+  min-width: 3.4rem;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.page-casinocore .lang-toggle:hover,
+.page-casinocore .lang-toggle:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.page-casinocore .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.page-casinocore .hero-spotlight {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.2rem;
+}
+
+.page-casinocore .spotlight-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.4rem;
+  border-radius: 1.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.page-casinocore .spotlight-card svg {
+  width: 2.2rem;
+  height: 2.2rem;
+  color: var(--text);
+}
+
+.page-casinocore .spotlight-card h4 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.page-casinocore .spotlight-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.page-casinocore .feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.page-casinocore .feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.4rem;
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.page-casinocore .feature-card svg {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  color: var(--cyan);
+}
+
+.page-casinocore .feature-card h4 {
+  margin: 0 0 0.35rem;
+}
+
+.page-casinocore .feature-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.page-casinocore .project-title {
+  margin: 1rem 0 0.8rem;
+  line-height: 1.02;
+  letter-spacing: 0.12em;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+}
+
+.page-casinocore .hero-extra {
+  margin-top: 1.6rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.page-casinocore .feature-grid .feature-card:nth-child(2) svg,
+.page-casinocore .feature-grid .feature-card:nth-child(4) svg {
+  color: var(--purple);
+}
+
+.page-casinocore .page-footer-note {
+  margin-top: 0.8rem;
+  color: var(--muted);
+}
+
+@media (max-width: 980px) {
+  .page-casinocore .hero-spotlight,
+  .page-casinocore .feature-grid,
+  .page-casinocore .meta-layout,
+  .page-casinocore .wip-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .page-casinocore .nav-brandbar,
+  .page-casinocore .nav-menu-row {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .page-casinocore .lang-toggle {
+    width: 100%;
+    margin: 0;
+  }
+
+  .page-casinocore .hero-actions {
+    justify-content: stretch;
+  }
+
+  .page-casinocore .hero-spotlight {
+    gap: 0.9rem;
+  }
+
+  .page-casinocore .feature-grid {
+    gap: 0.9rem;
+  }
+}
