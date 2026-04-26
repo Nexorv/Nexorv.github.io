@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <meta name="description" content="Plugin status - DevNexus pipeline processing.">
+  <meta name="theme-color" content="#07111b">
+  <meta property="og:title" content="Plugin Status | DevNexus">
+  <meta property="og:description" content="Live plugin development and moderation status.">
+  <meta property="og:type" content="website">
+
+  <title>Plugin Status | DevNexus</title>
+
+  <link rel="icon" href="assets/images/favicon.png" sizes="any">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+
+<body class="page-status">
+<div class="site-shell">
+
+  <!-- NAV -->
+  <header class="navbar">
+    <nav class="nav-container">
+      <div class="nav-brandbar">
+        <a class="nav-logo" href="index.html">DevNexus</a>
+        <p class="nav-status">Plugins, systems & experiments hub</p>
+      </div>
+
+      <div class="nav-menu-row">
+        <div class="nav-links" id="site-nav-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <button class="lang-toggle" id="lang-toggle" type="button">EN</button>
+        <button class="nav-toggle" type="button">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="page-main">
+
+    <!-- HERO -->
+    <section class="page-hero page-hero-purple">
+      <p class="section-label">System Status</p>
+
+      <h1 class="project-title">Plugin Pipeline</h1>
+
+      <p class="section-copy">
+        Live development and moderation status for this plugin inside the DevNexus pipeline.
+      </p>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="status-content">
+
+      <!-- MAIN STATUS CARD -->
+      <article class="glass-card status-panel">
+
+        <div class="status-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+
+        <h2>Current State</h2>
+
+        <p>
+          This plugin is currently moving through the DevNexus development pipeline.
+          Status is updated as it progresses through testing and moderation.
+        </p>
+
+        <!-- STATUS BADGE (CHANGE THIS) -->
+        <div class="status-badge in-development">
+          IN DEVELOPMENT
+          <!-- possible values:
+               IN DEVELOPMENT
+               UNDER REVIEW
+               READY FOR DOWNLOAD
+               BLOCKED
+          -->
+        </div>
+
+        <div class="status-details">
+
+          <div class="detail-item">
+            <span class="detail-label">State</span>
+            <span class="detail-value in-development">In Development</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Pipeline Stage</span>
+            <span class="detail-value">Internal Testing</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Next Step</span>
+            <span class="detail-value">Moderation Review</span>
+          </div>
+
+        </div>
+
+        <div class="action-buttons">
+          <a class="btn btn-primary" href="index.html#projects">Back to Projects</a>
+          <a class="btn btn-secondary" href="https://discord.gg/ZMje3neEmK" target="_blank">Join Discord</a>
+          <a class="btn btn-ghost" href="contact.html">Contact</a>
+        </div>
+
+      </article>
+
+      <!-- INFO CARD -->
+      <article class="glass-card info-panel">
+
+        <h3>Pipeline Stages</h3>
+
+        <ul class="pending-reasons">
+          <li><strong>Development:</strong> Feature implementation and core logic creation</li>
+          <li><strong>Internal Testing:</strong> Stability and functionality verification</li>
+          <li><strong>Moderation Review:</strong> Security and quality validation</li>
+          <li><strong>Release Ready:</strong> Approved for public download</li>
+        </ul>
+
+        <p class="info-text">
+          DevNexus ensures every plugin passes a structured pipeline to maintain quality,
+          stability, and security across all releases.
+        </p>
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <h2>DevNexus</h2>
+      <p>High-quality Minecraft plugin ecosystem.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://discord.gg/ZMje3neEmK" target="_blank">Discord</a>
+    </div>
+  </footer>
+
+</div>
+
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/scroll.js"></script>
+<script src="assets/js/lang.js"></script>
+
+</body>
+</html>
