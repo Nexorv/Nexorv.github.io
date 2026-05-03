@@ -42,7 +42,6 @@
           <a href="index.html#featured">Featured</a>
           <a href="contact.html">Contact</a>
         </div>
-        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch to Polish">PL</button>
         <button class="nav-toggle" type="button">
           <span></span><span></span><span></span>
         </button>
@@ -76,6 +75,11 @@
            target="_blank">
           Join Discord
         </a>
+
+        <a class="btn btn-ghost"
+           href="events.html">
+          Custom Events Docs
+        </a>
       </div>
 
       <div class="hero-highlights">
@@ -84,7 +88,7 @@
         <span class="signal-pill purple">Active Development</span>
       </div>
 
-      <p class="micro-note">Last updated: April 2026</p>
+      <p class="micro-note">Last updated: May 2026</p>
     </section>
 
     <!-- PREVIEW (DODAJ TO) -->
@@ -128,7 +132,7 @@
           </a>
 
           <a class="btn btn-secondary"
-             href="https://modrinth.com/plugin/pulseevents/version/0.0.3"
+             href="https://modrinth.com/plugin/pulseevents/version/0.0.4"
              target="_blank">
             Modrinth
           </a>
@@ -143,7 +147,7 @@
           <dd>Live + evolving</dd>
 
           <dt>Version</dt>
-          <dd>0.0.3</dd>
+          <dd>1.0.0</dd>
 
           <dt>MC Support</dt>
           <dd>1.20.x – 1.21.x</dd>
@@ -152,7 +156,7 @@
           <dd>Server plugin</dd>
 
           <dt>Release</dt>
-          <dd>April 2026</dd>
+          <dd>May 2026</dd>
 
           <dt>Language</dt>
           <dd>PL / EN (planned)</dd>
@@ -191,6 +195,52 @@
         </ul>
       </article>
 
+    </section>
+
+    <!-- CHANGELOG -->
+    <section class="release-section">
+      <div class="section-heading">
+        <p class="section-label">Changelog</p>
+        <h2>Latest Release</h2>
+        <p class="section-copy">Release notes for the newest PulseEvents update, listed above older versions.</p>
+      </div>
+
+      <article class="glass-card release-card">
+        <div class="release-header">
+          <div>
+            <h3>Version 1.0.0</h3>
+            <p class="release-meta">Released 2026-05-03 - Major version bump from 0.0.4 to 1.0.0</p>
+          </div>
+          <span class="signal-pill blue">Latest</span>
+        </div>
+
+        <div class="release-grid">
+          <div>
+            <h4>Added</h4>
+            <ul class="feature-list">
+              <li>Custom event system with data-driven events defined in <code>config.yml</code> under <code>custom-events</code></li>
+              <li>13 configurable action types: <code>message</code>, <code>sound</code>, <code>potion</code>, <code>teleport</code>, <code>spawn-mob</code>, <code>strike-lightning</code>, <code>spawn-tnt</code>, <code>velocity</code>, <code>ignite</code>, <code>economy-reward</code>, <code>title</code>, <code>console-command</code>, <code>player-command</code></li>
+              <li>9 configurable event metadata fields: <code>name</code>, <code>chance</code>, <code>duration</code>, <code>icon</code>, <code>min-players</code>, <code>allowed-worlds</code>, <code>start-message</code>, <code>end-message</code>, <code>bossbar-title</code></li>
+              <li>6 new action fields: <code>target-count</code>, <code>chance</code>, <code>fade-in-ticks</code>, <code>stay-ticks</code>, <code>fade-out-ticks</code>, <code>command</code></li>
+              <li>5 preset events included: <code>meteor-shower</code>, <code>gravity-well</code>, <code>hot-potato</code>, <code>jackpot-rush</code>, <code>blink-surge</code></li>
+              <li>Startup and reload validation for custom events</li>
+              <li><code>CUSTOM_EVENTS.md</code> reference documentation</li>
+              <li>GUI now shows event duration and minimum player requirements</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Changed</h4>
+            <ul class="status-list">
+              <li>Event registration now reloads built-in and custom events together</li>
+              <li>Event icons now resolve through the shared event contract, so built-in and custom events use the same UI flow</li>
+              <li>Queue, announcements, bossbar, placeholders, and GUI chance editing now work with custom events</li>
+              <li>GUI queue now supports middle-click, <code>Q</code>, and <code>Ctrl+Q</code> shortcuts</li>
+              <li>Config presets now include examples covering all new features</li>
+            </ul>
+          </div>
+        </div>
+      </article>
     </section>
 
     <!-- QUICK START -->
@@ -255,9 +305,9 @@
 
 </div>
 
+<script src="assets/js/i18n.js"></script>
 <script src="assets/js/nav.js"></script>
 <script src="assets/js/scroll.js"></script>
 <script src="assets/js/project.js"></script>
-<script src="assets/js/lang.js"></script>
 </body>
 </html>

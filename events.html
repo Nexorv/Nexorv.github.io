@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="PulseEvents 1.0.0 custom events reference for configuring event definitions, action types, validation, and runtime behavior.">
+  <meta name="theme-color" content="#07111b">
+  <meta property="og:title" content="PulseEvents Custom Events | PluggLAB">
+  <meta property="og:description" content="Developer reference for PulseEvents custom event configuration in version 1.0.0.">
+
+  <title>PluggLAB | PulseEvents Custom Events</title>
+
+  <link rel="icon" href="assets/images/pulseevents_n.png" sizes="any">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/events.css">
+</head>
+
+<body class="page-project page-events">
+<div class="site-shell">
+
+  <header class="navbar">
+    <nav class="nav-container">
+      <div class="nav-brandbar">
+        <a class="nav-logo" href="index.html">PluggLAB</a>
+        <p class="nav-status">Project hub for plugins, packs, and experiments</p>
+      </div>
+
+      <div class="nav-menu-row">
+        <div class="nav-links" id="site-nav-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <button class="nav-toggle" type="button">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero page-hero-blue">
+      <p class="section-label">Reference</p>
+      <h1 class="project-title">Custom Events</h1>
+      <p class="section-copy">
+        Technical reference for PulseEvents 1.0.0 custom event configuration, action execution, validation, and runtime behavior.
+      </p>
+
+      <div class="hero-highlights">
+        <span class="signal-pill blue">PulseEvents 1.0.0</span>
+        <span class="signal-pill cyan">Config-Driven</span>
+        <span class="signal-pill purple">Developer Docs</span>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="pulseevents.html">Back to PulseEvents</a>
+        <a class="btn btn-secondary" href="https://www.spigotmc.org/resources/pulseevents.134140/" target="_blank">Download Plugin</a>
+      </div>
+    </section>
+
+    <section class="docs-layout">
+      <article class="glass-card docs-card">
+        <div class="section-heading">
+          <p class="section-label">Overview</p>
+          <h2>Runtime Integration</h2>
+        </div>
+
+        <ul class="feature-list">
+          <li>Custom events live under <code>custom-events</code> in <code>config.yml</code>.</li>
+          <li>They are registered on startup and on <code>/pe reload</code>.</li>
+          <li>GUI chance editing, queueing, bossbar, announcements, and placeholders all support custom events as first-class entries.</li>
+        </ul>
+      </article>
+
+      <article class="glass-card docs-card">
+        <div class="section-heading">
+          <p class="section-label">Example</p>
+          <h2>Minimal YAML</h2>
+        </div>
+
+        <pre class="code-block"><code>custom-events:
+  meteor-shower:
+    enabled: true
+    name: "Meteor Shower"
+    chance: 100
+    duration: 45
+    icon: MAGMA_BLOCK
+    min-players: 2
+    allowed-worlds: []
+    start-message: "&amp;c%event% has started."
+    end-message: "&7%event% has ended."
+    bossbar-title: "&6%event%"
+    actions:
+      opening-title:
+        type: title
+        target: all-players
+        title: "&6%event%"
+        subtitle: "&7Take cover."
+      impact-wave:
+        type: spawn-tnt
+        target: random-players
+        target-count: 2
+        chance: 70
+        delay-seconds: 4
+        amount: 2
+        fuse-ticks: 50
+        explosion-power: 3.0</code></pre>
+      </article>
+    </section>
+
+    <section class="docs-section">
+      <div class="section-heading">
+        <p class="section-label">Reference</p>
+        <h2>Top-Level Event Fields</h2>
+      </div>
+
+      <div class="table-wrap glass-card">
+        <table class="docs-table">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Type / Default</th>
+              <th>Behavior</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>enabled</code></td>
+              <td><code>boolean</code> / <code>true</code></td>
+              <td><code>false</code> skips the event on load.</td>
+            </tr>
+            <tr>
+              <td><code>name</code></td>
+              <td><code>string</code></td>
+              <td>Used in GUI, queue, broadcasts, and placeholders.</td>
+            </tr>
+            <tr>
+              <td><code>chance</code></td>
+              <td><code>integer</code> / <code>100</code></td>
+              <td>Selection weight. <code>0</code> makes the event manual or queue only.</td>
+            </tr>
+            <tr>
+              <td><code>duration</code></td>
+              <td><code>integer</code> / required</td>
+              <td>Must be greater than <code>0</code>. Controls bossbar timer and auto-stop.</td>
+            </tr>
+            <tr>
+              <td><code>icon</code></td>
+              <td><code>Material</code></td>
+              <td>Bukkit material such as <code>NETHER_STAR</code>, <code>MAGMA_BLOCK</code>, or <code>EMERALD</code>.</td>
+            </tr>
+            <tr>
+              <td><code>min-players</code></td>
+              <td><code>integer</code> / <code>1</code></td>
+              <td>Counts only eligible players.</td>
+            </tr>
+            <tr>
+              <td><code>allowed-worlds</code></td>
+              <td>list / <code>[]</code></td>
+              <td>Empty list allows any world permitted by global multiworld rules.</td>
+            </tr>
+            <tr>
+              <td><code>start-message</code></td>
+              <td><code>string</code> / optional</td>
+              <td>Overrides the default start broadcast. Supports <code>%event%</code>.</td>
+            </tr>
+            <tr>
+              <td><code>end-message</code></td>
+              <td><code>string</code> / optional</td>
+              <td>Overrides the default end broadcast. Supports <code>%event%</code>.</td>
+            </tr>
+            <tr>
+              <td><code>bossbar-title</code></td>
+              <td><code>string</code> / optional</td>
+              <td>Overrides the default bossbar title. Supports <code>%event%</code>.</td>
+            </tr>
+            <tr>
+              <td><code>actions</code></td>
+              <td>config section / required</td>
+              <td>Contains named action entries.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <div class="section-heading">
+        <p class="section-label">Reference</p>
+        <h2>Common Action Fields</h2>
+      </div>
+
+      <div class="table-wrap glass-card">
+        <table class="docs-table">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Type / Default</th>
+              <th>Behavior</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>type</code></td>
+              <td>required</td>
+              <td>Action type selector.</td>
+            </tr>
+            <tr>
+              <td><code>target</code></td>
+              <td><code>all-players</code></td>
+              <td>Options: <code>all-players</code>, <code>all</code>, <code>random-player</code>, <code>random-players</code>.</td>
+            </tr>
+            <tr>
+              <td><code>target-count</code></td>
+              <td><code>integer</code> / <code>1</code></td>
+              <td>Used with <code>random-players</code>. Clamped to online player count.</td>
+            </tr>
+            <tr>
+              <td><code>chance</code></td>
+              <td><code>integer</code> / <code>100</code></td>
+              <td>Per-action chance gate from <code>0</code> to <code>100</code>. Rolled on each execution.</td>
+            </tr>
+            <tr>
+              <td><code>delay-seconds</code></td>
+              <td><code>integer</code> / <code>0</code></td>
+              <td>Delays the first run.</td>
+            </tr>
+            <tr>
+              <td><code>repeat-every-seconds</code></td>
+              <td><code>integer</code> / <code>0</code></td>
+              <td><code>0</code> means no repeat.</td>
+            </tr>
+            <tr>
+              <td><code>repeat-times</code></td>
+              <td><code>integer</code> / <code>1</code></td>
+              <td>Total executions when repeating.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <div class="section-heading">
+        <p class="section-label">Action Types</p>
+        <h2>Supported Actions</h2>
+      </div>
+
+      <div class="action-grid">
+        <article class="glass-card action-card">
+          <h3>1. <code>message</code></h3>
+          <p>Sends chat text.</p>
+          <p><strong>Fields:</strong> <code>message</code>. Supports <code>%event%</code>.</p>
+        </article>
+        <article class="glass-card action-card">
+          <h3>2. <code>sound</code></h3>
+          <p>Plays a Bukkit sound.</p>
+          <p><strong>Fields:</strong> <code>sound</code>, <code>volume</code> (default <code>1.0</code>), <code>pitch</code> (default <code>1.0</code>).</p>
+        </article>
+        <article class="glass-card action-card">
+          <h3>3. <code>potion</code></h3>
+          <p>Applies a potion effect.</p>
+          <p><strong>Fields:</strong> <code>effect</code>, <code>effect-duration-seconds</code> (default <code>5</code>), <code>amplifier</code> (default <code>0</code>).</p>
+        </article>
+        <article class="glass-card action-card">
+          <h3>4. <code>teleport</code></h3>
+          <p>Applies a random offset teleport.</p>
+          <p><strong>Fields:</strong> <code>random-offset.x.min</code>/<code>max</code>, <code>random-offset.y.min</code>/<code>max</code>, <code>random-offset.z.min</code>/<code>max</code>.</p>
+        </article>
+        <article class="glass-card action-card">
+          <h3>5. <code>spawn-mob</code></h3>
+          <p>Spawns entities.</p>
+          <p><strong>Fields:</strong> <code>entity</code> (default <code>ZOMBIE</code>), <code>amount</code> (default <code>1</code>), <code>offset.x</code>, <code>offset.y</code>, <code>offset.z</code>.</p>
+        </article>
+        <article class="glass-card action-card">
+          <h3>6. <code>strike-lightning</code></h3>
+          <p>Triggers lightning.</p>
+          <p><strong>Fields:</strong> <code>effect-only</code> (default <code>false</code>), <code>offset.x</code>, <code>offset.y</code>, <code>offset.z</code>.</p>
+        </article>
+        <article class="glass-card action-card">
+          <h3>7. <code>spawn-tnt</code></h3>
+          <p>Spawns primed TNT.</p>
+          <p><strong>Fields:</strong> <code>amount</code>, <code>fuse-ticks</code> (default <code>40</code>), <code>explosion-power</code> (default <code>4.0</code>), <code>offset.x</code>, <code>offset.y</code>, <code>offset.z</code>.</p>
+        </article>
+        <article class="glass-card action-card">
+          <h3>8. <code>velocity</code></h3>
+          <p>Sets player velocity.</p>
+          <p><strong>Fields:</strong> <code>velocity.x</code>, <code>velocity.y</code>, <code>velocity.z</code>.</p>
+        </article>
+        <article class="glass-card action-card">
+          <h3>9. <code>ignite</code></h3>
+          <p>Sets the target on fire.</p>
+          <p><strong>Fields:</strong> <code>fire-ticks</code> (default <code>60</code>).</p>
+        </article>
+        <article class="glass-card action-card">
+          <h3>10. <code>economy-reward</code></h3>
+          <p>Runs a Vault payout.</p>
+          <p><strong>Fields:</strong> <code>money.min</code>, <code>money.max</code>. Requires Vault.</p>
+        </article>
+        <article class="glass-card action-card">
+          <h3>11. <code>title</code></h3>
+          <p>Shows title and subtitle.</p>
+          <p><strong>Fields:</strong> <code>title</code>, <code>subtitle</code>, <code>fade-in-ticks</code> (<code>10</code>), <code>stay-ticks</code> (<code>40</code>), <code>fade-out-ticks</code> (<code>10</code>). Supports <code>%event%</code>.</p>
+        </article>
+        <article class="glass-card action-card">
+          <h3>12. <code>console-command</code></h3>
+          <p>Runs a command as console per target.</p>
+          <p><strong>Fields:</strong> <code>command</code>. Supports <code>%event%</code>, <code>%player%</code>, <code>%world%</code>.</p>
+        </article>
+        <article class="glass-card action-card">
+          <h3>13. <code>player-command</code></h3>
+          <p>Runs a command as player.</p>
+          <p><strong>Fields:</strong> <code>command</code>. Supports <code>%event%</code>, <code>%player%</code>, <code>%world%</code>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="docs-layout">
+      <article class="glass-card docs-card">
+        <div class="section-heading">
+          <p class="section-label">Validation</p>
+          <h2>Events Are Skipped If</h2>
+        </div>
+
+        <ul class="status-list">
+          <li><code>duration &lt;= 0</code></li>
+          <li><code>icon</code> is not a valid <code>Material</code></li>
+          <li>No <code>actions</code> section exists</li>
+          <li>An action has no <code>type</code></li>
+          <li><code>sound</code> uses an invalid <code>Sound</code> value</li>
+          <li><code>potion</code> uses an invalid <code>PotionEffectType</code></li>
+          <li><code>spawn-mob</code> uses an invalid <code>EntityType</code></li>
+          <li><code>console-command</code> or <code>player-command</code> has an empty <code>command</code></li>
+          <li><code>economy-reward</code> has no Vault provider</li>
+          <li>An action uses an unsupported <code>type</code></li>
+        </ul>
+      </article>
+
+      <article class="glass-card docs-card">
+        <div class="section-heading">
+          <p class="section-label">Runtime</p>
+          <h2>Operational Notes</h2>
+        </div>
+
+        <ul class="feature-list">
+          <li>GUI queue input supports middle click, <code>Q</code>, and <code>Ctrl+Q</code>.</li>
+          <li><code>min-players</code> counts players eligible under both global and event-specific world rules.</li>
+          <li><code>random-players</code> picks unique players up to <code>target-count</code>.</li>
+        </ul>
+
+        <h3 class="subheading">Shipped Presets</h3>
+        <div class="hero-highlights">
+          <span class="signal-pill blue">meteor-shower</span>
+          <span class="signal-pill cyan">gravity-well</span>
+          <span class="signal-pill purple">hot-potato</span>
+          <span class="signal-pill red">jackpot-rush</span>
+          <span class="signal-pill yellow">blink-surge</span>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <h2>PluggLAB</h2>
+      <p>PulseEvents custom event reference for version 1.0.0.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="pulseevents.html">PulseEvents</a>
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+</div>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/scroll.js"></script>
+<script src="assets/js/project.js"></script>
+</body>
+</html>

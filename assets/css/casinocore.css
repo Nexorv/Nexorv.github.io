@@ -15,26 +15,6 @@
   letter-spacing: 0.12em;
 }
 
-.page-casinocore .lang-toggle {
-  margin-left: auto;
-  min-width: 3.4rem;
-  padding: 0.75rem 1rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text);
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-}
-
-.page-casinocore .lang-toggle:hover,
-.page-casinocore .lang-toggle:focus-visible {
-  transform: translateY(-1px);
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.08);
-}
-
 .page-casinocore .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -146,11 +126,6 @@
   .page-casinocore .nav-menu-row {
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-
-  .page-casinocore .lang-toggle {
-    width: 100%;
-    margin: 0;
   }
 
   .page-casinocore .hero-actions {
